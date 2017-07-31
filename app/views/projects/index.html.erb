@@ -2,29 +2,39 @@
 <h1>一覧</h1>
 <!-- 検索 -->
 <%= render 'search' %>
-
+<!-- ページネーション -->
+<%= paginate @projects %>
 <h2>コンテンツ部分</h2>
-<table>
+<div class="table-responsive">
+<table class="table table-hover">
+  <thead>
   <tr>
+    <th>作成日</th>
+    <th>作成者</th>
     <th>作りたいもの</th>
-    <th>内容</th>
+    <!-- <th>内容</th> -->
     <th colspan="4"></th>
   </tr>
-
+  </thead>
   <% @projects.each do |p| %>
-    <tr>
 
+    <tr>
+      <!-- 日時出力 -->
+      <td><%= p.created_at.strftime('%Y年%m月%d日') %></td>
+      <td><%= p.user.user_name %></td>
       <td><%= p.create_title %></td>
-      <td><%= p.content %></td>
+      <!-- <td><%= p.content %></td> -->
       <!-- pv 出力 -->
       <td>pv: <%= p.impressionist_count %></td>
-      <td><%= link_to '詳細', project_path(p) %></td>
-      <td><%= link_to '編集', edit_project_path(p) %></td>
-      <td><%= link_to '削除', project_path(p), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+      <div class="btn-group btn-group-justified">
+        <td><%= link_to '詳細', project_path(p), class: "btn btn-info" %></td>
+        <td><%= link_to '編集', edit_project_path(p), class: "btn btn-info" %></td>
+        <td><%= link_to '削除', project_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info"  %></td>
+      </div>
     </tr>
   <% end %>
 </table>
-
+</div>
 <!-- ページネーション -->
 <%= paginate @projects %>
 

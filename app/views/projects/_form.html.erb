@@ -8,9 +8,11 @@
     <% end %>
     </ul>
   <% end %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   <p>
     <%= f.label :作りたいもの %><br>
-    <%= f.text_field :create_title %>
+    <!-- 文字制限 20文字まで -->
+    <%= f.text_field :create_title, maxlength: '20' %>
   </p>
 
   <p>

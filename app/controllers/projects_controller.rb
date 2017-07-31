@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   impressionist actions: [:show]
-
+  before_action :authenticate_user!, only: [:show, :new, :destroy, :edit]
   def show
     impressionist(@project)
   end
@@ -45,6 +45,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:create_title, :content)
+      params.require(:project).permit(:create_title, :content, :user_id)
     end
 end
