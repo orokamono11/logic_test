@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap-sass'
+gem 'devise-bootstrap-views'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
