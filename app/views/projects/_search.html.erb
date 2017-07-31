@@ -1,0 +1,9 @@
+<h2>検索欄</h2>
+
+<%= search_form_for @search do |f| %>
+  <!-- 部分一致 -->
+  <%= f.label :create_title_cont, "製作物" %>
+  <%= f.search_field :create_title_cont %>
+  <!-- 検索ボタン -->
+  <div class="actions"><%= f.submit '検索' %></div>
+<% end %>
