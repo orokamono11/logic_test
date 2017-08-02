@@ -2,6 +2,7 @@ ja:
   activerecord:
     attributes:
       user:
+        user_name: "ユーザーネーム"
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
@@ -53,6 +54,7 @@ ja:
     sessions:
       new:
         sign_in: "ログイン"
+        remember_me: "ログインを保持"
     shared:
       links:
         back: "戻る"
