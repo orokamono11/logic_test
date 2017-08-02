@@ -20,7 +20,7 @@
 
     <tr>
       <!-- 日時出力 -->
-      <td><%= p.created_at.strftime('%Y年%m月%d日') %></td>
+      <td><%= p.created_at.strftime('%Y年%m月%d日%X') %></td>
       <td><%= p.user.user_name %></td>
       <td><%= p.create_title %></td>
       <!-- <td><%= p.content %></td> -->
@@ -28,14 +28,15 @@
       <td>pv: <%= p.impressionist_count %></td>
       <div class="btn-group btn-group-justified">
         <td><%= link_to '詳細', project_path(p), class: "btn btn-info" %></td>
-        <td><%= link_to '編集', edit_project_path(p), class: "btn btn-info" %></td>
-        <td><%= link_to '削除', project_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info"  %></td>
+        <td><%= link_to '編集', edit_project_path(p), class: "btn btn-warning" %></td>
+        <td><%= link_to '削除', project_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
       </div>
     </tr>
   <% end %>
 </table>
 </div>
 <!-- ページネーション -->
+<ul class="pagination">
 <%= paginate @projects %>
-
+</ul>
 <%= link_to '投稿する', new_project_path %>

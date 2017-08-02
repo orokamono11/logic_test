@@ -12,9 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require bootstrap
 //= require_tree .
-//= require bootstrap-sprockets
-//= require jquery3
-//= require popper
 // bootstrap ボタン
-$('.btn').button();

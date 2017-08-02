@@ -8,6 +8,7 @@
 50.times do |d|
   Project.create(
   create_title: "作りたいもの#{d}",
+  language_used: "ruby",
   content: "内容#{d}",
   user_id: "1"
   )
