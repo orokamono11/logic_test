@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,40 @@
       </li>
       <% end %>
     </ul>
-    <%= render 'projects/search' %>
+
   </div>
 </nav>
-</header>
+</header> -->
+<header>
+  <div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-inverse p-4">
+        <% if user_signed_in? %>
+        <h1><span class="badge badge-default"><%= current_user.user_name %>
+        さん</span></h1>
+        <div class="btn-group btn-group-lg" role="group">
+        <%= button_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-outline-success" %>
+        <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+        </div>
+      <% else %>
+          <h1><span class="badge badge-default">ようこそ ゲスト さん</span></h1>
+          <div class="btn-group btn-group-lg" role="group">
+           <%= button_to 'サインアップ',  new_user_registration_path , class: "btn btn-outline-success" %>
+           <%= button_to 'ログイン', new_user_session_path, class: "btn btn-outline-info" %>
+          </div>
+            <% end %>
+          </div>
+        </div>
+        <nav class="navbar navbar-inverse bg-inverse">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <% if user_signed_in? %>
+            <%= current_user.user_name %>
+            さん
+          <% else %>
+            ようこそ ゲスト さん
+            <% end %>
+          </button>
+        </nav>
+      </div>
+    </header>
